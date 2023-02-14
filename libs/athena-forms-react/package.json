@@ -1,0 +1,34 @@
+{
+  "name": "@scylla-digital/athena-forms-react",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist-cjs/index.js",
+  "private": true,
+  "module": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ./dist && rimraf ./dist-cjs && pnpm run build:cjs && pnpm run build:esm",
+    "build:cjs": "tsc -p tsconfig.json --module commonjs --outDir ./dist-cjs",
+    "build:esm": "tsc -p tsconfig.json --module es6 --outDir ./dist",
+    "watch": "tsc -w --preserveWatchOutput -p tsconfig.json --pretty --module es6 --outDir ./dist",
+    "lint": "./node_modules/.bin/eslint src --max-warnings 0"
+  },
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-plugin": "^0.8.3",
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint": "^8.4.1",
+    "typescript": "^4.7.4",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "rimraf": "^3.0.2",
+    "@scylla-digital/design-library": "workspace:*"
+  },
+  "author": "",
+  "license": "ISC"
+}

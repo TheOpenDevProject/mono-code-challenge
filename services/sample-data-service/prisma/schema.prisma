@@ -1,0 +1,45 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model customer {
+  id               String   @id @default(uuid()) @db.Char(36)
+  relatedServiceId String // <- This is the interservice relationship
+  companyName      String
+  activated        Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([id])
+}
+
+model pricingRule {
+  id                 String   @id @default(uuid()) @db.Char(36)
+  name               String
+  description        String
+  standardPrice      String
+  modifiedPrice      String
+  modifierType       Int
+  modifierEventValue String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@index([id])
+}
+
+model advertisement {
+  id          String   @id @default(uuid()) @db.Char(36)
+  name        String
+  description String
+  price       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([id])
+}

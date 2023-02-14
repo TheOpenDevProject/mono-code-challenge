@@ -1,0 +1,17 @@
+version: "3.2"
+
+services:
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+  mariadb:
+        image: mariadb:10.9.4
+        ports:
+            - "3306:3306"
+        environment:
+          MARIADB_ROOT_PASSWORD: SuperSecretPassword!
+        volumes:
+            - ./docker/mysql:/var/lib/mysql

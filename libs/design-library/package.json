@@ -1,0 +1,49 @@
+{
+  "name": "@scylla-digital/design-library",
+  "version": "0.0.1",
+  "description": "The Scylla Design System",
+  "main": "dist-cjs/index.js",
+  "private": true,
+  "module": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "styled-components": "^5.3.5",
+    "param-case": "^3.0.4",
+    "react-router-dom": "^6.2.1",
+    "react-select": "^5.2.1",
+    "react-dropzone": "^11.4.2",
+    "react-date-range": "^1.4.0",
+    "fuse.js": "^6.5.3",
+    "@mui/icons-material": "~5.8.0",
+    "@mui/material": "~5.8.1"
+  },
+  "devDependencies": {
+    "jest": "^27.4.4",
+    "eslint": "^8.4.1",
+    "@rushstack/eslint-plugin": "^0.8.3",
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "typescript": "^4.7.4",
+    "@types/styled-components": "^5.1.16",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@types/jest": "^27.0.3",
+    "rimraf": "^3.0.2",
+    "@types/react-dropzone": "^5.1.0",
+    "@types/react-date-range": "^1.4.2"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && rimraf ./dist-cjs && pnpm run build:cjs && pnpm run build:esm",
+    "build:cjs": "tsc -p tsconfig.json --module commonjs --outDir ./dist-cjs",
+    "build:esm": "tsc -p tsconfig.json --module es6 --outDir ./dist",
+    "watch": "tsc -w --preserveWatchOutput -p tsconfig.json --pretty --module es6 --outDir ./dist",
+    "lint": "./node_modules/.bin/eslint src --max-warnings 0"
+  },
+  "author": "Scylla-Digital",
+  "license": "ISC"
+}

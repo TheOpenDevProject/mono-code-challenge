@@ -1,0 +1,13 @@
+version: "3.2"
+
+services:
+  dynamodb:
+   image: amazon/dynamodb-local:latest
+  mariadb:
+    image: mariadb:10.9.4
+    ports:
+      - "3307:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: SuperSecretPassword!
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
